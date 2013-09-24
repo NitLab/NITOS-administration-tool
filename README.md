@@ -9,8 +9,11 @@ It is built on top of the NITOS API(https://github.com/NitLab/Nitos_api)
 Currently, the administrator can manage the following resources : 
 
 -Users (apparently these are the joomla users of NITOS web interface)
+
 -Slices
+
 -Resources – both nodes and channels
+
 -Reservation information for the nodes and the channels
 
 Known Bugs : 
