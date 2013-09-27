@@ -1,0 +1,943 @@
+1378126419TS--->
+<script type="text/javascript">
+var print;
+$(document).ready(function() {
+  $("#createnodebtn").click(function() {
+    var urls = {"add": "addNode.php", "update": "updateNode.php"};
+    var table = "#nodes";
+    var form = "#new_node_form";
+    var primary_key = "node_id";
+    create(urls, table, form, primary_key);
+    $("#nodes_dialog").modal("hide");
+  });
+
+  $("#cancelnodebtn").click(function(){$("#nodes_dialog").modal("hide")});
+
+  $(".deletenode").click(function() {
+    $.post("deleteNode.php", {"node_id":$(this).attr("data-pk")}); 
+      $(this).parent().parent().remove();
+      $(this).trigger("update");
+    // }
+  });
+
+  $("#deleteallnodes").click(function() {
+    $(".nodes").each(function(key, value) {
+      print = $(this);
+      $(this).remove();
+    });
+    $(this).trigger("update");
+  });
+
+});
+</script>
+<table id="nodes" class="table table-striped tablesorter">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Floor</th>
+      <th>View</th>
+      <th>Wall</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+    </tr>
+  </thead>
+  <tbody>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="195" data-name="hostname" data-url="updateNode.php" class="editable editable-click">kampia</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="195" data-name="node_type" data-url="updateNode.php" class="editable editable-click">true</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="195" data-name="floor" data-url="updateNode.php" class="editable editable-click">2</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="195" data-name="view" data-url="updateNode.php" class="editable editable-click">back</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="195" data-name="wall" data-url="updateNode.php" class="editable editable-click">left</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="195" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="195" data-name="Y" data-url="updateNode.php" class="editable editable-click">2</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="195" data-name="Z" data-url="updateNode.php" class="editable editable-click">3</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="195" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="8" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node001</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="8" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="8" data-name="floor" data-url="updateNode.php" class="editable editable-click">5</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="8" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="8" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="8" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="8" data-name="Y" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="8" data-name="Z" data-url="updateNode.php" class="editable editable-click">5</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="8" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="51" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node002</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="51" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="51" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="51" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="51" data-name="wall" data-url="updateNode.php" class="editable editable-click">left</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="51" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="51" data-name="Y" data-url="updateNode.php" class="editable editable-click">2</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="51" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="51" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="55" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node003</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="55" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="55" data-name="floor" data-url="updateNode.php" class="editable editable-click">4</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="55" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="55" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="55" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="55" data-name="Y" data-url="updateNode.php" class="editable editable-click">3</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="55" data-name="Z" data-url="updateNode.php" class="editable editable-click">4</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="55" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="10" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node004</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="10" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="10" data-name="floor" data-url="updateNode.php" class="editable editable-click">4</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="10" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="10" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="10" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="10" data-name="Y" data-url="updateNode.php" class="editable editable-click">4</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="10" data-name="Z" data-url="updateNode.php" class="editable editable-click">4</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="10" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="1" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node005</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="1" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="1" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="1" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="1" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="1" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="1" data-name="Y" data-url="updateNode.php" class="editable editable-click">5</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="1" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="1" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="4" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node006</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="4" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="4" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="4" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="4" data-name="wall" data-url="updateNode.php" class="editable editable-click">back</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="4" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="4" data-name="Y" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="4" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="4" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="3" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node007</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="3" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="3" data-name="floor" data-url="updateNode.php" class="editable editable-click">4</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="3" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="3" data-name="wall" data-url="updateNode.php" class="editable editable-click">right</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="3" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="3" data-name="Y" data-url="updateNode.php" class="editable editable-click">7</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="3" data-name="Z" data-url="updateNode.php" class="editable editable-click">4</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="3" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="6" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node008</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="6" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="6" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="6" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="6" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="6" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="6" data-name="Y" data-url="updateNode.php" class="editable editable-click">8</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="6" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="6" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="57" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node009</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="57" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="57" data-name="floor" data-url="updateNode.php" class="editable editable-click">4</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="57" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="57" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="57" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="57" data-name="Y" data-url="updateNode.php" class="editable editable-click">9</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="57" data-name="Z" data-url="updateNode.php" class="editable editable-click">4</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="57" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="7" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node010</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="7" data-name="node_type" data-url="updateNode.php" class="editable editable-click">orbit</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="7" data-name="floor" data-url="updateNode.php" class="editable editable-click">5</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="7" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="7" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="7" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="7" data-name="Y" data-url="updateNode.php" class="editable editable-click">10</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="7" data-name="Z" data-url="updateNode.php" class="editable editable-click">5</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="7" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="80" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node011</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="80" data-name="node_type" data-url="updateNode.php" class="editable editable-click">diskless</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="80" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="80" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="80" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="80" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="80" data-name="Y" data-url="updateNode.php" class="editable editable-click">11</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="80" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="80" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="82" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node012</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="82" data-name="node_type" data-url="updateNode.php" class="editable editable-click">diskless</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="82" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="82" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="82" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="82" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="82" data-name="Y" data-url="updateNode.php" class="editable editable-click">12</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="82" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="82" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="84" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node013</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="84" data-name="node_type" data-url="updateNode.php" class="editable editable-click">diskless</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="84" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="84" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="84" data-name="wall" data-url="updateNode.php" class="editable editable-click">front</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="84" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="84" data-name="Y" data-url="updateNode.php" class="editable editable-click">13</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="84" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="84" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="59" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node016</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="59" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="59" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="59" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="59" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="59" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="59" data-name="Y" data-url="updateNode.php" class="editable editable-click">16</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="59" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="59" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="60" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node017</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="60" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="60" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="60" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="60" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="60" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="60" data-name="Y" data-url="updateNode.php" class="editable editable-click">17</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="60" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="60" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="134" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node018</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="134" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="134" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="134" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="134" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="134" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="134" data-name="Y" data-url="updateNode.php" class="editable editable-click">18</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="134" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="134" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="62" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node019</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="62" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="62" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="62" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="62" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="62" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="62" data-name="Y" data-url="updateNode.php" class="editable editable-click">19</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="62" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="62" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="64" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node021</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="64" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="64" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="64" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="64" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="64" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="64" data-name="Y" data-url="updateNode.php" class="editable editable-click">21</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="64" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="64" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="65" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node022</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="65" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="65" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="65" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="65" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="65" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="65" data-name="Y" data-url="updateNode.php" class="editable editable-click">22</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="65" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="65" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="66" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node023</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="66" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="66" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="66" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="66" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="66" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="66" data-name="Y" data-url="updateNode.php" class="editable editable-click">23</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="66" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="66" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="67" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node024</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="67" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="67" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="67" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="67" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="67" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="67" data-name="Y" data-url="updateNode.php" class="editable editable-click">24</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="67" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="67" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="68" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node025</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="68" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="68" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="68" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="68" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="68" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="68" data-name="Y" data-url="updateNode.php" class="editable editable-click">25</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="68" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="68" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="135" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node026</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="135" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="135" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="135" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="135" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="135" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="135" data-name="Y" data-url="updateNode.php" class="editable editable-click">26</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="135" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="135" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="70" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node027</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="70" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="70" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="70" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="70" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="70" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="70" data-name="Y" data-url="updateNode.php" class="editable editable-click">27</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="70" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="70" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="71" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node028</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="71" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="71" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="71" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="71" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="71" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="71" data-name="Y" data-url="updateNode.php" class="editable editable-click">28</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="71" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="71" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="72" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node029</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="72" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="72" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="72" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="72" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="72" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="72" data-name="Y" data-url="updateNode.php" class="editable editable-click">29</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="72" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="72" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="73" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node030</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="73" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="73" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="73" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="73" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="73" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="73" data-name="Y" data-url="updateNode.php" class="editable editable-click">30</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="73" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="73" name="delete_node_id"></input>
+        </td>
+      </tr>
+          <tr class="nodes">
+        <td> 
+          <a href="#" data-type="text" data-pk="75" data-name="hostname" data-url="updateNode.php" class="editable editable-click">node032</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="75" data-name="node_type" data-url="updateNode.php" class="editable editable-click">commel</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="75" data-name="floor" data-url="updateNode.php" class="editable editable-click">6</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="75" data-name="view" data-url="updateNode.php" class="editable editable-click">outside</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="75" data-name="wall" data-url="updateNode.php" class="editable editable-click">grid</a>
+        </td>
+        <td>
+          <a href="#" data-type="text" data-pk="75" data-name="X" data-url="updateNode.php" class="editable editable-click">1</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="75" data-name="Y" data-url="updateNode.php" class="editable editable-click">32</a>  
+        </td> 
+        <td>
+          <a href="#" data-type="text" data-pk="75" data-name="Z" data-url="updateNode.php" class="editable editable-click">6</a>  
+        </td>
+        <td>
+          <input value="remove" class="deletenode btn btn-small" type="button" data-pk="75" name="delete_node_id"></input>
+        </td>
+      </tr>
+      </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="7" class="pager2 form-horizontal tablesorter-pager" data-column="0">
+        <button type="button" class="btn first disabled"><i class="icon-step-backward"></i></button>
+        <button type="button" class="btn prev disabled"><i class="icon-arrow-left"></i></button>
+        <span class="pagedisplay">1 - 10 / 50 (50)</span> <!-- this can be any element, including an input -->
+        <button type="button" class="btn next"><i class="icon-arrow-right"></i></button>
+        <button type="button" class="btn last"><i class="icon-step-forward"></i></button>
+        <select class="pagesize input-mini" title="Select page size">
+          <option selected="selected" value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+        </select>
+        <select class="pagenum2 input-mini" title="Select page number"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+      </th>
+      <th>
+        <button type="button" data-toggle="modal" data-target="#nodes_dialog" id="addNode" class="btn-add btn btn-primary">Add</button>
+        <div id="nodes_dialog" class="modal hide fade in">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            <form id="new_node_form" action="addNode.php" method="POST">
+            <fieldset>
+              <label for="hostname">Hostname</label>
+              <input type="text" name="hostname" id="hostname" class="text ui-widget-content ui-corner-all" />
+              <label for="node_type">Type</label>
+              <input type="text" name="node_type" id="node_type" value="" class="text ui-widget-content ui-corner-all" />
+              <label for="floor">Floor</label>
+              <input type="floor" name="floor" id="floor" value="" class="text ui-widget-content ui-corner-all" />
+              <label for="view">View</label>
+              <input type="text" name="view" id="view" value="" class="text ui-widget-content ui-corner-all" />
+              <label for="wall">Wall</label>
+              <input type="text" name="wall" id="wall" value="" class="text ui-widget-content ui-corner-all" />
+              <label for="X">X</label>
+              <input type="text" name="x" id="x" value="" class="text ui-widget-content ui-corner-all" />
+              <label for="Y">Y</label>
+              <input type="text" name="y" id="y" value="" class="text ui-widget-content ui-corner-all" />
+              <label for="Z">Z</label>
+              <input type="text" name="z" id="z" value="" class="text ui-widget-content ui-corner-all" />
+            </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <input id="createnodebtn" type="button" class="btn btn-primary" value="Create"/>
+            <input id="cancelnodebtn" type="button" value="Cancel"/>
+          </div>
+        </div>
+      </th>
+      <th>
+        <button type="button" id="deleteallnodes" class="btn-remove-all btn btn-danger">Remove All</button>
+      </th>
+    </tr>
+  </tfoot>
+</table>
