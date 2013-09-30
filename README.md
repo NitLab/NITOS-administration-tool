@@ -1,7 +1,7 @@
 NITOS-administration-tool
 =========================
 
-This tool provides a friendly administrative interface, using the NITOS API (https://github.com/NitLab/Nitos_api).
+This tool provides a friendly administrative interface, using the [NITOS API](https://github.com/NitLab/Nitos_api).
 
 Currently, the administrator can manage the following resources : 
 
@@ -15,6 +15,7 @@ Currently, the administrator can manage the following resources :
 
   * Reservation information for the nodes and the channels
 
+The application is using the [codeigniter](http://ellislab.com/codeigniter/user-guide/) framework.
 
 ## Installation 
 
@@ -36,5 +37,5 @@ php -S localhost:8000 (for php >= 5.4.0). Alternatively, copy to the root folder
 
 ## Possible Improvements 
 
-  1. We could use caching mechanisms of codeigniter( http://ellislab.com/codeigniter/user-guide/general/caching.html) to reduce response time for each tab. 
+  1. We could use caching mechanisms of [codeigniter](http://ellislab.com/codeigniter/user-guide/) to reduce response time for each tab. 
   2. The slices tab takes some time to load. Probably, it is caused by increased load time of js files. We could profile execution by using the browser's profiler and optimize the relevant parts.
