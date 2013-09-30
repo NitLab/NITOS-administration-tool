@@ -1,0 +1,9 @@
+[submodule "assets/bootstrap-modal"]
+	path = assets/bootstrap-modal
+	url = https://github.com/jschr/bootstrap-modal
+[submodule "assets/select2"]
+	path = assets/select2
+	url = https://github.com/ivaynberg/select2
+[submodule "assets/tablesorter"]
+	path = assets/tablesorter
+	url = https://github.com/Mottie/tablesorter
