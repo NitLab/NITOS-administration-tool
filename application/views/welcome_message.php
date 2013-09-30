@@ -1,7 +1,7 @@
 <?php
-require(APPPATH.'/libraries/vendor/autoload.php');
-require(APPPATH.'/libraries/nitlab_api.php');
-require(APPPATH.'/views/templates/header.php');
+require(APPPATH.'libraries/vendor/autoload.php');
+require(APPPATH.'libraries/nitlab_api.php');
+require(APPPATH.'views/templates/header.php');
 $api  = new NitlabAPI\NitlabAPI();
 ?>
 
@@ -19,5 +19,5 @@ $api  = new NitlabAPI\NitlabAPI();
   </ul>
 </div>
 <?php
-include(APPPATH."/views/templates/footer.php");
+include(APPPATH.'views/templates/footer.php');
 ?>

@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require_once(APPPATH."libraries/nitlab_api.php");
+require_once(APPPATH.'libraries/nitlab_api.php');
 class Nodes extends CI_Controller {
 
 	function __construct()
