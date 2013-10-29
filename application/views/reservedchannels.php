@@ -1,7 +1,5 @@
-<script type="text/javascript" src="/assets/js/app_init.js"></script>
-<script type="text/javascript" src="/assets/js/sortedtable.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/sortedtable.js"></script>
 <script type="text/javascript">
-var print;
 $(document).ready(function() {
   update_active_reservations("/reservedchannels/now", "#reservedchannels");
   setInterval(function() {

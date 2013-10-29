@@ -1,13 +1,13 @@
 <?php
 header('Content-type: text/html');
 ?>
-<script type="text/javascript" src="/assets/js/sortedtable.js"></script>
-
+<script type="text/javascript" src="<?=base_url()?>assets/js/sortedtable.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/app_init.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
   $(".editable").editable();
   $("#createchanbtn").click(function() {
-    var urls = {"add": "/channels/add", "update": "/channels/update"};
+    var urls = {"add": "<?=site_url()?>/channels/add", "update": "<?=site_url()?>/channels/update"};
     var table = "#channels";
     var form = "#new_channel_form";
     var primary_key = "channel_id";
@@ -18,7 +18,7 @@ $(document).ready(function() {
   $("#cancelchanbtn").click(function(){$("#channels_dialog").modal("hide")});
 
   $(".deletechan").click(function() {
-    $.post("/channels/delete", {"channel_id":$(this).attr("data-pk")});
+    $.post("<?=site_url()?>/channels/delete", {"channel_id":$(this).attr("data-pk")});
     $(this).parent().parent().remove();
     $("#channels").trigger("update");
   });
@@ -43,13 +43,13 @@ $(document).ready(function() {
     <?php foreach($channels as $c) {?>
       <tr class="channels">
         <td>
-          <a href="#" data-type="text" data-pk="<?=$c['channel_id']?>" data-name="modulation" data-url="/channels/update" class="editable editable-click"><?=$c['modulation']?></a>
+          <a href="#" data-type="text" data-pk="<?=$c['channel_id']?>" data-name="modulation" data-url="<?=site_url()?>/channels/update" class="editable editable-click"><?=$c['modulation']?></a>
         </td>
         <td>
-          <a href="#" data-type="text" data-pk="<?=$c['channel_id']?>" data-name="channel" data-url="/channels/update" class="editable editable-click"><?=$c['channel']?></a>
+          <a href="#" data-type="text" data-pk="<?=$c['channel_id']?>" data-name="channel" data-url="<?=site_url()?>/channels/update" class="editable editable-click"><?=$c['channel']?></a>
         </td>
         <td>
-          <a href="#" data-type="text" data-pk="<?=$c['channel_id']?>" data-name="frequency" data-url="/channels/update" class="editable editable-click"><?=$c['frequency']?></a>
+          <a href="#" data-type="text" data-pk="<?=$c['channel_id']?>" data-name="frequency" data-url="<?=site_url()?>/channels/update" class="editable editable-click"><?=$c['frequency']?></a>
         </td>
         <td>
         <input value="remove" class="deletechan btn btn-small" type="button" data-pk="<?=$c['channel_id']?>" name="delete_channel_id"></input>
@@ -80,7 +80,7 @@ $(document).ready(function() {
           <div class="modal-header">
           </div>
           <div class="modal-body">
-            <form id="new_channel_form" action="/channels/add" method="POST">
+          <form id="new_channel_form" action="<?=site_url()?>/channels/add" method="POST">
             <fieldset>
               <label for="modulation">Modulation</label>
               <input type="text" name="modulation" id="modulation" class="text ui-widget-content ui-corner-all" />

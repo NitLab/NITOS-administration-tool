@@ -1,14 +1,13 @@
 <?php
 header('Content-type: text/html');
 ?>
-<script type="text/javascript" src="/assets/js/sortedtable.js"></script>
-<script type="text/javascript" src="/assets/js/app_init.js"></script>
-
+<script type="text/javascript" src="<?=base_url()?>assets/js/sortedtable.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/app_init.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-  $('.editable').editable();
+  $(".editable").editable();
   $("#createnodebtn").click(function() {
-    var urls = {"add": "/nodes/add", "update": "/nodes/update"};
+    var urls = {"add": "<?=site_url()?>/nodes/add", "update": "<?=site_url()?>/nodes/update"};
     var table = "#nodes";
     var form = "#new_node_form";
     var primary_key = "node_id";
@@ -19,16 +18,21 @@ $(document).ready(function() {
   $("#cancelnodebtn").click(function(){$("#nodes_dialog").modal("hide")});
 
   $(".deletenode").click(function() {
-    $.post("/nodes/delete", {"node_id":$(this).attr("data-pk")});
+    $.post("<?=site_url()?>/nodes/delete", {"node_id":$(this).attr("data-pk")}); 
+    //TODO : This check fails
+    // alert(parseInt(data.toString()));
+    // if(parseInt(data.toString()) == 0) {
       $(this).parent().parent().remove();
       $(this).trigger("update");
+    // }
   });
 
   $("#deleteallnodes").click(function() {
     $(".nodes").each(function(key, value) {
+      print = $(this);
       $(this).remove();
     });
-    $("#nodes").trigger("update");
+    $(this).trigger("update");
   });
 
 });
@@ -49,29 +53,29 @@ $(document).ready(function() {
   <tbody>
     <?php foreach($nodes as $n) {?>
       <tr class="nodes">
-        <td>
-          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="hostname" data-url="/nodes/update" class="editable editable-click"><?=$n['hostname']?></a>
+        <td> 
+          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="hostname" data-url="<?=site_url()?>/nodes/update" class="editable editable-click"><?=$n['hostname']?></a>
         </td>
         <td>
-          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="node_type" data-url="/nodes/update" class="editable editable-click"><?=$n['node_type']?></a>
+          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="node_type" data-url="<?=site_url()?>/nodes/update" class="editable editable-click"><?=$n['node_type']?></a>
         </td>
         <td>
-          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="floor" data-url="/nodes/update" class="editable editable-click"><?=$n['floor']?></a>
+          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="floor" data-url="<?=site_url()?>/nodes/update" class="editable editable-click"><?=$n['floor']?></a>
         </td>
         <td>
-          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="view" data-url="/nodes/update" class="editable editable-click"><?=$n['view']?></a>
+          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="view" data-url="<?=site_url()?>/nodes/update" class="editable editable-click"><?=$n['view']?></a>
         </td>
         <td>
-          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="wall" data-url="/nodes/update" class="editable editable-click"><?=$n['wall']?></a>
+          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="wall" data-url="<?=site_url()?>/nodes/update" class="editable editable-click"><?=$n['wall']?></a>
         </td>
         <td>
-          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="X" data-url="/nodes/update" class="editable editable-click"><?=$n['position']['X']?></a>
-        </td>
+          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="x" data-url="<?=site_url()?>/nodes/update" class="editable editable-click"><?=$n['position']['X']?></a>  
+        </td> 
         <td>
-          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="Y" data-url="/nodes/update" class="editable editable-click"><?=$n['position']['Y']?></a>
-        </td>
+          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="y" data-url="<?=site_url()?>/nodes/update" class="editable editable-click"><?=$n['position']['Y']?></a>  
+        </td> 
         <td>
-          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="Z" data-url="/nodes/update" class="editable editable-click"><?=$n['position']['Z']?></a>
+          <a href="#" data-type="text" data-pk="<?=$n['node_id']?>" data-name="z" data-url="<?=site_url()?>/nodes/update" class="editable editable-click"><?=$n['position']['Z']?></a>  
         </td>
         <td>
           <input value="remove" class="deletenode btn btn-small" type="button" data-pk="<?=$n['node_id']?>" name="delete_node_id"></input>
@@ -101,12 +105,12 @@ $(document).ready(function() {
           <div class="modal-header">
           </div>
           <div class="modal-body">
-            <form id="new_node_form" action="/nodes/add" method="POST">
+          <form id="new_node_form" action="<?=site_url()?>/nodes/add" method="POST">
             <fieldset>
               <label for="hostname">Hostname</label>
               <input type="text" name="hostname" id="hostname" class="text ui-widget-content ui-corner-all" />
               <label for="node_type">Type</label>
-              <input type="text" name="node_type" id="type" value="" class="text ui-widget-content ui-corner-all" />
+              <input type="text" name="node_type" id="node_type" value="" class="text ui-widget-content ui-corner-all" />
               <label for="floor">Floor</label>
               <input type="floor" name="floor" id="floor" value="" class="text ui-widget-content ui-corner-all" />
               <label for="view">View</label>
@@ -127,6 +131,9 @@ $(document).ready(function() {
             <input id="cancelnodebtn" type="button" value="Cancel"/>
           </div>
         </div>
+      </th>
+      <th>
+        <button type="button" id="deleteallnodes" class="btn-remove-all btn btn-danger">Remove All</button>
       </th>
     </tr>
   </tfoot>

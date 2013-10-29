@@ -1,7 +1,7 @@
 <?php
 header('Content-type: text/html');
 ?>
-<script type="text/javascript" src="/assets/js/sortedtable.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/sortedtable.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
   $(".editable").editable();
@@ -24,7 +24,7 @@ $(document).ready(function() {
   });
 
   $("#createuser").click(function() {
-    var urls = {"add": "/users/add", "update": "/users/update"};
+    var urls = {"add": "<?=site_url()?>/users/add", "update": "<?=site_url()?>/users/update"};
     var table = "#users";
     var form = "#new_user";
     var primary_key = "user_id";
@@ -35,7 +35,7 @@ $(document).ready(function() {
   $("#canceluserbtn").click(function(){$("#users_dialog").modal("hide")});
 
   $(".deleteuser").click(function() {
-    $.post("/users/delete", {"user_id":$(this).attr("data-pk")});
+    $.post("<?=site_url()?>/users/delete", {"user_id":$(this).attr("data-pk")});
     //TODO : This check fails
     // alert(parseInt(data.toString()));
     // if(parseInt(data.toString()) == 0) {
@@ -66,10 +66,10 @@ $(document).ready(function() {
     <?php foreach($users as $u) {?>
       <tr>
         <td>
-          <a href="#" data-type="text" data-name="username" data-pk="<?=$u['user_id']?>" data-url="/users/update" class="editable editable-click" ><?=$u['username']?></a>
+          <a href="#" data-type="text" data-name="username" data-pk="<?=$u['user_id']?>" data-url="<?=site_url()?>/users/update" class="editable editable-click" ><?=$u['username']?></a>
         </td>
         <td>
-          <a href="#" data-type="text" data-name="email" data-pk="<?=$u['user_id']?>" data-url="/users/update" class="editable editable-click" ><?=$u['email']?></a>
+          <a href="#" data-type="text" data-name="email" data-pk="<?=$u['user_id']?>" data-url="<?=site_url()?>/users/update" class="editable editable-click" ><?=$u['email']?></a>
         </td>
         <td>
           <button type="button" class="user-keys btn btn-primary">Click to View</button>
@@ -109,7 +109,7 @@ $(document).ready(function() {
           <div class="modal-header">
           </div>
           <div class="modal-body">
-            <form id="new_user_form" action="/users/add" method="POST">
+          <form id="new_user_form" action="<?=site_url()?>/users/add" method="POST">
             <fieldset>
               <label for="username">username</label>
               <input type="text" name="username" id="username" class="text ui-widget-content ui-corner-all" />

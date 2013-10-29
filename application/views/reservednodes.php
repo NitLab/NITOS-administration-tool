@@ -1,13 +1,16 @@
-<script type="text/javascript" src="/assets/js/app_init.js"></script>
-<script type="text/javascript" src="/assets/js/sortedtable.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/app_init.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/sortedtable.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-  update_active_reservations("/reservednodes/now", "#reservednodes");
+  $("#slices_select").editable({
+    dataType: 'json'
+  });
+  update_active_reservations("<?=site_url()?>/reservednodes/now", "#reservednodes");
   setInterval(function() {
-    update_active_reservations("/reservednodes/now", "#reservednodes");
+    update_active_reservations("<?=site_url()?>/reservednodes/now", "#reservednodes");
   }, 10000);
   $("body").on("create", function() {
-    update_active_reservations("/reservednodes/now", "#reservednodes");
+    update_active_reservations("<?=site_url()?>/reservednodes/now", "#reservednodes");
   });
   $(".datetimepicker").datetimepicker({
     timeFormat : 'HH:mm:ss',
@@ -17,7 +20,7 @@ $(document).ready(function() {
   });
   $(".select_nodes_update").select2({'width' : 'resolve'});
   $("#createresnodebtn").click(function() {
-    var urls = {"add": "/reservednodes/add", "update": "/reservednodes/update"};
+    var urls = {"add": "<?=site_url()?>/reservednodes/add", "update": "<?=site_url()?>/reservednodes/update"};
     var table = "#reservednodes";
     var form = "#new_resnode_form";
     var primary_key = "reservation_id";
@@ -28,7 +31,7 @@ $(document).ready(function() {
   $("#cancelresnodebtn").click(function(){$("#resnodes_dialog").modal("hide")});
 
   $(".deleteresnode").click(function() {
-    $.post("/reservednodes/delete", {"reservation_id":$(this).attr("data-pk")});
+    $.post("<?=site_url()?>/reservednodes/delete", {"reservation_id":$(this).attr("data-pk")});
     $(this).parent().parent().remove();
     $("#reservedNodes").trigger("update");
   });
@@ -54,16 +57,16 @@ $(document).ready(function() {
     <?php foreach($reservedNodes as $key => $rn) {?>
       <tr>
         <td>
-          <a id="slices_select" href="#" data-type="select2" data-source="/api/slices/" data-pk="<?=$rn['reservation_id']?>" data-name="slice_name" data-value="<?=$slice_names[$key]?>"><?=$slice_names[$key]?></a>
+          <a id="slices_select" href="#" data-type="select2" data-source="<?=site_url()?>/slices/" data-pk="<?=$rn['reservation_id']?>" class="editable editable-click" data-name="slice_name" data-value="<?=$slice_names[$key]?>"><?=$slice_names[$key]?></a>
         </td>
         <td>
-          <a href="#" data-type="datetime" data-pk="<?=$rn['reservation_id']?>" data-name="start_time" ><?=date($this->config->item('date_format'), $rn['start_time'])?></a>
+          <a href="#" data-type="datetime" data-pk="<?=$rn['reservation_id']?>" class="editable editable-click" data-name="start_time" ><?=date($this->config->item('date_format'), $rn['start_time'])?></a>
         </td>
         <td>
-          <a href="#" data-type="datetime" data-pk="<?=$rn['reservation_id']?>" data-name="end_time" ><?=date($this->config->item('date_format'), $rn['end_time'])?></a>
+          <a href="#" data-type="datetime" data-pk="<?=$rn['reservation_id']?>" class="editable editable-click" data-name="end_time" ><?=date($this->config->item('date_format'), $rn['end_time'])?></a>
         </td>
         <td>
-          <a href="#" data-type="select2" data-source="/api/nodes/" data-pk="<?=$rn['reservation_id']?>" data-name="hostname" data-value="<?=$slice_names[$key]?>"><?=$node_names[$key]?></a>
+          <a href="#" data-type="select2" data-source="<?=site_url()?>/nodes/" class="editable editable-click" data-pk="<?=$rn['reservation_id']?>" data-name="hostname" data-value="<?=$slice_names[$key]?>"><?=$node_names[$key]?></a>
         </td>
         <td>
           <input value="remove" class="deleteresnode btn btn-small" type="button" data-pk="<?=$rn['reservation_id']?>" name="delete_resnode_id"></input>
@@ -93,7 +96,7 @@ $(document).ready(function() {
           <div class="modal-header">
           </div>
           <div class="modal-body">
-            <form id="new_resnode_form" action="/reservednodes/add" method="POST">
+          <form id="new_resnode_form" action="<?=site_url()?>/reservednodes/add" method="POST">
             <fieldset>
               <label for="slice">Slice</label>
               <select name="slice_id">

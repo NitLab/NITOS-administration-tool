@@ -2,7 +2,7 @@
 header('Content-type: text/html');
 ?>
 
-<script type="text/javascript" src="/assets/js/sortedtable.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/sortedtable.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -21,7 +21,7 @@ $(document).ready(function() {
     });
   });
   $("#createslicebtn").click(function() {
-    var urls = {"add": "/slices/add", "update": "/slices/update"};
+    var urls = {"add": "<?=site_url()?>/slices/add", "update": "<?=site_url()?>/slices/update"};
     var table = "#slices";
     var form = "#new_slice_form";
     var primary_key = "slice_id";
@@ -34,7 +34,7 @@ $(document).ready(function() {
   $("#cancelslicebtn").click(function(){$("#slices_dialog").modal("hide")});
 
   $(".deleteslice").click(function() {
-    $.post("/slices/delete", {"slice_id":$(this).attr("data-pk")});
+    $.post("<?=site_url()?>/slices/delete", {"slice_id":$(this).attr("data-pk")});
     $(this).parent().parent().remove();
     $(this).trigger("update");
   });
@@ -59,7 +59,7 @@ $(document).ready(function() {
     <?php foreach($slices as $s) {?>
       <tr>
         <td>
-          <a href="#" data-type="text" data-pk="<?=$s['slice_id']?>" data-name="slice_name" data-url="/slices/update" class="editable editable-click"><?=$s['slice_name']?></a>
+          <a href="#" data-type="text" data-pk="<?=$s['slice_id']?>" data-name="slice_name" data-url="<?=site_url()?>/slices/update" class="editable editable-click"><?=$s['slice_name']?></a>
         </td>
         <td>
           <button type="button"  data-target="" class="btn-add btn btn-primary slice_names_btn">Click to View</button>
@@ -121,7 +121,7 @@ $(document).ready(function() {
         <div id="slices_dialog" class="modal hide fade in">
           <div class="modal-header"></div>
           <div class="modal-body">
-            <form id="new_slice_form" action="/slices/add" method="POST">
+          <form id="new_slice_form" action="<?=site_url()?>/slices/add" method="POST">
               <fieldset>
                 <label for="slice_name">Slice Name</label>
                 <input type="text" name="slice_name" class="text ui-widget-content ui-corner-all" />
