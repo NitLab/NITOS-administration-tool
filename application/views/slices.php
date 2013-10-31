@@ -9,7 +9,7 @@ $(document).ready(function() {
     $(".editable").editable();
     $(".updateSliceBtn").click(function() {
     var $form = $(this).parent().parent().parent().find('.slice_form');
-    $.post("/slices/update", $form.serialize(), function(json) {
+    $.post("<?=site_url()?>/slices/update", $form.serialize(), function(json) {
     });
   });
   $("select.select_users_create").select2({'width' : 'resolve'});
