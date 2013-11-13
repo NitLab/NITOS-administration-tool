@@ -51,6 +51,7 @@ $(document).ready(function() {
 <table id="slices" class="table table-striped">
   <thead>
     <tr>
+      <th> Slice ID </th>
       <th>Slice Name</th>
       <th>User IDs</th>
     </tr>
@@ -58,6 +59,9 @@ $(document).ready(function() {
   <tbody>
     <?php foreach($slices as $s) {?>
       <tr>
+        <td>
+          <?=$s['slice_id']?>
+        </td>
         <td>
           <a href="#" data-type="text" data-pk="<?=$s['slice_id']?>" data-name="slice_name" data-url="<?=site_url()?>/slices/update" class="editable editable-click"><?=$s['slice_name']?></a>
         </td>

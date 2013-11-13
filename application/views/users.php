@@ -57,6 +57,7 @@ $(document).ready(function() {
 <table id="users" class="table table-striped">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Username</th>
       <th>email</th>
       <th>keys</th>
@@ -65,6 +66,9 @@ $(document).ready(function() {
   <tbody>
     <?php foreach($users as $u) {?>
       <tr>
+        <td>
+          <?=$u['user_id']?>
+        </td>
         <td>
           <a href="#" data-type="text" data-name="username" data-pk="<?=$u['user_id']?>" data-url="<?=site_url()?>/users/update" class="editable editable-click" ><?=$u['username']?></a>
         </td>
